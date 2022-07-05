@@ -1,6 +1,6 @@
 var refreshIntervalId: number;
 
-function main(x: number = 5, y: number = 5) {
+function main(x: number = 25, y: number = 25) {
   var table: Grid = new Grid("main_table", x, y);
   // var row = table.insertRow(0);
   table.updateContent();
