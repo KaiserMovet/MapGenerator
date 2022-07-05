@@ -2,6 +2,7 @@
 class Grid {
     constructor(table_id, x = 10, y = 10) {
         this.table = document.getElementById(table_id);
+        this.table.innerHTML = "";
         this.x = x;
         this.y = y;
         this.tiles = [];
@@ -77,6 +78,8 @@ class Grid {
         let c = document.getElementById("canvas");
         let size_x = 51;
         let size_y = 51;
+        c.setAttribute("width", (size_x * this.x).toString());
+        c.setAttribute("height", (size_x * this.x).toString());
         let ctx = c.getContext("2d");
         for (var i = 0; i < this.x; i++) {
             for (var j = 0; j < this.y; j++) {
