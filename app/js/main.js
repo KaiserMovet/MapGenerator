@@ -1,6 +1,6 @@
 "use strict";
 var refreshIntervalId;
-function main(x = 5, y = 5) {
+function main(x = 25, y = 25) {
     var table = new Grid("main_table", x, y);
     // var row = table.insertRow(0);
     table.updateContent();
