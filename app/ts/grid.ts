@@ -7,6 +7,7 @@ class Grid {
 
   constructor(table_id: string, x: number = 10, y: number = 10) {
     this.table = <HTMLTableElement>document.getElementById(table_id);
+    this.table.innerHTML = "";
     this.x = x;
     this.y = y;
     this.tiles = [];
@@ -97,6 +98,8 @@ class Grid {
     let c = <HTMLCanvasElement>document.getElementById("canvas");
     let size_x = 51;
     let size_y = 51;
+    c.setAttribute("width", (size_x * this.x).toString());
+    c.setAttribute("height", (size_x * this.x).toString());
     let ctx = <CanvasRenderingContext2D>c.getContext("2d");
 
     for (var i = 0; i < this.x; i++) {
