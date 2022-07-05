@@ -21,7 +21,7 @@ class Grid {
       this.tiles[i] = [];
       for (var j = 0; j < this.y; j++) {
         let newCell = newRow.insertCell(-1);
-        this.tiles[i][j] = new Tile(newCell, new TileName());
+        this.tiles[i][j] = new Tile(newCell, new TileName(), i, j);
       }
     }
   }
@@ -72,6 +72,46 @@ class Grid {
     for (let row of this.tiles) {
       for (let cell of row) {
         cell.update_content();
+      }
+    }
+  }
+
+  drawImage(
+    ctx: CanvasRenderingContext2D,
+    img: HTMLImageElement,
+    x: number,
+    y: number,
+    angle = 0,
+    scale = 1
+  ) {
+    ctx.save();
+    ctx.translate(x + (img.width * scale) / 2, y + (img.height * scale) / 2);
+    ctx.rotate(angle);
+    ctx.translate(-x - (img.width * scale) / 2, -y - (img.height * scale) / 2);
+    ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+    ctx.restore();
+  }
+  generateImg() {
+    console.log("Updare");
+    // table = <HTMLTableElement>document.getElementById(table_id);
+    let c = <HTMLCanvasElement>document.getElementById("canvas");
+    let size_x = 51;
+    let size_y = 51;
+    let ctx = <CanvasRenderingContext2D>c.getContext("2d");
+
+    for (var i = 0; i < this.x; i++) {
+      for (var j = 0; j < this.y; j++) {
+        let img = <HTMLImageElement>this.table.rows[i].cells[j].children[0];
+        console.log(img);
+        let rotation = parseInt(<string>img.getAttribute("rotation"));
+        this.drawImage(
+          ctx,
+          img,
+          j * size_x,
+          i * size_y,
+          rotation * -0.5 * Math.PI
+        );
+        // ctx.drawImage(img, j * size_x, i * size_y);
       }
     }
   }
