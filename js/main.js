@@ -5,7 +5,6 @@ function main(x = 5, y = 5) {
     // var row = table.insertRow(0);
     table.updateContent();
     table.updateTileType();
-    console.log(table.tiles);
     table.generateImg();
     refreshIntervalId = window.setInterval(function () {
         table.generateImg();
@@ -15,7 +14,6 @@ function main(x = 5, y = 5) {
 function myFunction() {
     clearInterval(refreshIntervalId);
     let x = parseInt(document.getElementById("table_size").value);
-    console.log(x);
     main(x, x);
 }
 main();
