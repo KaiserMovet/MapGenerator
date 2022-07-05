@@ -39,6 +39,11 @@ class TilesCollection {
             "1111",
             "2121",
             "2222",
+            "0303",
+            "0313",
+            "0330",
+            "1313",
+            "2323",
         ];
         for (let name of existing) {
             this.available.push(new TileName(name, 0));
