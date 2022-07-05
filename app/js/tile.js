@@ -9,15 +9,6 @@ class Tile {
     update_type(tile_name) {
         this.tile_type = tile_name;
     }
-    updateCanvas(image) {
-        if (!image.complete) {
-            setTimeout(this.updateCanvas, 1000);
-        }
-        let c = document.getElementById("canvas");
-        let ctx = c.getContext("2d");
-        ctx.drawImage(image, this.y * 51, this.x * 51);
-        console.log(1);
-    }
     update_content() {
         let image = document.createElement("img");
         let x = this.x;
@@ -31,7 +22,5 @@ class Tile {
         else {
             this.cell.appendChild(image);
         }
-        // console.log(2);
-        // this.updateCanvas(image);
     }
 }

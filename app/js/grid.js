@@ -73,7 +73,6 @@ class Grid {
         ctx.restore();
     }
     generateImg() {
-        console.log("Updare");
         // table = <HTMLTableElement>document.getElementById(table_id);
         let c = document.getElementById("canvas");
         let size_x = 51;
@@ -84,7 +83,6 @@ class Grid {
         for (var i = 0; i < this.x; i++) {
             for (var j = 0; j < this.y; j++) {
                 let img = this.table.rows[i].cells[j].children[0];
-                console.log(img);
                 let rotation = parseInt(img.getAttribute("rotation"));
                 this.drawImage(ctx, img, j * size_x, i * size_y, rotation * -0.5 * Math.PI);
                 // ctx.drawImage(img, j * size_x, i * size_y);
