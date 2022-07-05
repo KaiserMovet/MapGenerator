@@ -15,7 +15,9 @@ function main(x: number = 5, y: number = 5) {
 
 function myFunction() {
   clearInterval(refreshIntervalId);
-  let x = parseInt(document.getElementById("table_size").value);
+  let x = parseInt(
+    (<HTMLInputElement>document.getElementById("table_size")!).value
+  );
   console.log(x);
   main(x, x);
 }
