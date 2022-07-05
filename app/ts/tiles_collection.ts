@@ -33,7 +33,19 @@ class TilesCollection {
     this.none_tile = new TileName("");
     // Create all possible tiles
     this.available = [];
-    let existing = ["0000", "0101", "0110", "0111", "1111"];
+    let existing = [
+      "0000",
+      "0101",
+      "0110",
+      "0111",
+      "0121",
+      "0202",
+      "0220",
+      "0222",
+      "1111",
+      "2121",
+      "2222",
+    ];
     for (let name of existing) {
       this.available.push(new TileName(name, 0));
       this.available.push(new TileName(name, 1));
